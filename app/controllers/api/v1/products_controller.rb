@@ -9,7 +9,7 @@ module Api
       end
 
       def search
-        products = current_user.products.search_by_name(params[:q])
+        products = current_user.products.search_by_query(params[:q])
           .left_joins(:list_items)
           .group("products.id")
           .order(Arel.sql("COUNT(list_items.id) DESC"), Arel.sql("LOWER(products.name) ASC"))
