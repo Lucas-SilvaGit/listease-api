@@ -17,4 +17,3 @@ class ProductSerializer
 
   attr_reader :product
 end
-

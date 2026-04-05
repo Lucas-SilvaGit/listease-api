@@ -10,8 +10,7 @@ class CreateLists < ActiveRecord::Migration[8.1]
       t.timestamps
     end
 
-    add_index :lists, [:user_id, :kind]
-    add_index :lists, [:user_id, :updated_at]
+    add_index :lists, [ :user_id, :kind ]
+    add_index :lists, [ :user_id, :updated_at ]
   end
 end
-

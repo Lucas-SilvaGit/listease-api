@@ -33,4 +33,3 @@ class List < ApplicationRecord
     errors.add(:year, "is required for monthly lists") if year.blank?
   end
 end
-

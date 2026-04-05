@@ -13,8 +13,7 @@ class CreateListItems < ActiveRecord::Migration[8.1]
       t.timestamps
     end
 
-    add_index :list_items, [:list_id, :purchased]
+    add_index :list_items, [ :list_id, :purchased ]
     add_index :list_items, :name_snapshot
   end
 end
-

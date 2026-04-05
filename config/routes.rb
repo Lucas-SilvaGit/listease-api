@@ -8,10 +8,10 @@ Rails.application.routes.draw do
       post "auth/login", to: "auth#login"
       get "profile", to: "profiles#show"
 
-      resources :lists, except: [:new, :edit] do
+      resources :lists, except: [ :new, :edit ] do
         post :duplicate, on: :member
 
-        resources :items, controller: "list_items", except: [:new, :edit, :show] do
+        resources :items, controller: "list_items", except: [ :new, :edit, :show ] do
           patch :toggle_purchased, on: :member
           patch :update_price, on: :member
           patch :update_quantity, on: :member
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :products, except: [:new, :edit, :show] do
+      resources :products, except: [ :new, :edit, :show ] do
         collection do
           get :search
         end

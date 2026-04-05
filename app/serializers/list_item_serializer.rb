@@ -20,4 +20,3 @@ class ListItemSerializer
 
   attr_reader :list_item
 end
-

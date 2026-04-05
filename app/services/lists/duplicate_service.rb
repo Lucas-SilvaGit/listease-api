@@ -26,9 +26,8 @@ module Lists
       duplicated_list
     end
 
-    private
+  private
 
-    attr_reader :source_list
+  attr_reader :source_list
   end
 end
-

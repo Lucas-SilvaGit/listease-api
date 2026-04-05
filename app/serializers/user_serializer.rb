@@ -16,4 +16,3 @@ class UserSerializer
 
   attr_reader :user
 end
-

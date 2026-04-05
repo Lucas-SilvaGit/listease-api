@@ -29,4 +29,3 @@ class ListItem < ApplicationRecord
     self.total_price = quantity.to_d * price.to_d
   end
 end
-
