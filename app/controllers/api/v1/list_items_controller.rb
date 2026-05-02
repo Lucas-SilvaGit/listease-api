@@ -5,14 +5,19 @@ module Api
       before_action :set_item, only: %i[update destroy toggle_purchased update_price update_quantity]
 
       def index
-        items = @list.list_items.includes(:product)
-        items = apply_filter(items)
-        items = apply_sort(items)
+        scoped_items = apply_filter(@list.list_items)
+        total = filtered_total_amount(scoped_items)
+        items = apply_sort(scoped_items).includes(:product)
 
         render json: {
           list: ListSerializer.new(@list.reload).as_json,
-          items: items.map { |item| ListItemSerializer.new(item).as_json }
+          items: items.map { |item| ListItemSerializer.new(item).as_json },
+          total: total
         }
+      end
+
+      def filtered_total_amount(items)
+        items.sum(:total_price).to_f
       end
 
       def create
